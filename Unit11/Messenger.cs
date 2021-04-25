@@ -22,7 +22,7 @@ namespace Unit11
         {
             string message = chat.GetLastMessage();
 
-            if (parser.IsTextCommand(message))
+            if (parser.IsTextCommand(message) && (chat.Command == null || parser.GetCommand(message) is StopTrainingCommand))
             {
                 var command = parser.GetCommand(message);
                 chat.Stage = command.NextStage(chat.Stage);
